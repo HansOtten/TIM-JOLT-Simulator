@@ -1,0 +1,105 @@
+object FMoveCopyMemory: TFMoveCopyMemory
+  Left = 795
+  Height = 211
+  Top = 442
+  Width = 369
+  Caption = 'Move or Copy Memory'
+  ClientHeight = 211
+  ClientWidth = 369
+  OnCreate = FormCreate
+  LCLVersion = '2.2.2.0'
+  object BStartMove: TButton
+    Left = 91
+    Height = 30
+    Top = 156
+    Width = 63
+    Caption = 'Move'
+    OnClick = BStartMoveClick
+    TabOrder = 4
+  end
+  object EMoveStart: TEdit
+    Left = 91
+    Height = 23
+    Top = 20
+    Width = 63
+    Alignment = taCenter
+    OnEditingDone = EMoveStartEditingDone
+    TabOrder = 0
+  end
+  object EMoveEnd: TEdit
+    Left = 195
+    Height = 23
+    Top = 20
+    Width = 65
+    Alignment = taCenter
+    OnEditingDone = EMoveEndEditingDone
+    TabOrder = 1
+  end
+  object BMoveClear: TButton
+    Left = 195
+    Height = 30
+    Top = 157
+    Width = 65
+    Caption = 'Clear'
+    OnClick = BMoveClearClick
+    TabOrder = 5
+  end
+  object LMoveFrom: TLabel
+    Left = 21
+    Height = 15
+    Top = 20
+    Width = 28
+    Caption = 'From'
+    ParentColor = False
+  end
+  object LTo: TLabel
+    Left = 168
+    Height = 15
+    Top = 20
+    Width = 11
+    Caption = 'to'
+    ParentColor = False
+  end
+  object EMoveTo: TEdit
+    Left = 91
+    Height = 23
+    Top = 64
+    Width = 63
+    Alignment = taCenter
+    OnEditingDone = EMoveToEditingDone
+    TabOrder = 2
+  end
+  object LMoveTo: TLabel
+    Left = 20
+    Height = 15
+    Top = 64
+    Width = 48
+    Caption = 'Move To '
+    ParentColor = False
+  end
+  object EFillbyte: TEdit
+    Left = 91
+    Height = 23
+    Top = 111
+    Width = 46
+    Alignment = taCenter
+    OnEditingDone = EFillbyteEditingDone
+    TabOrder = 3
+  end
+  object LFillbyte: TLabel
+    Left = 21
+    Height = 15
+    Top = 113
+    Width = 41
+    Caption = 'Fill byte'
+    ParentColor = False
+  end
+  object LFillremark: TLabel
+    Left = 162
+    Height = 15
+    Top = 113
+    Width = 147
+    Caption = '(leave empty for Copy only)'
+    ParentColor = False
+  end
+end

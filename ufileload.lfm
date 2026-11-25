@@ -1,0 +1,213 @@
+object ffileload: Tffileload
+  Left = 792
+  Height = 488
+  Top = 353
+  Width = 565
+  Caption = 'Load file in memory'
+  ClientHeight = 488
+  ClientWidth = 565
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 16
+    Height = 21
+    Top = 8
+    Width = 153
+    Caption = 'Load file into memory'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object eloadfilename: TEdit
+    Left = 24
+    Height = 23
+    Top = 64
+    Width = 261
+    ReadOnly = True
+    TabOrder = 0
+    Text = 'eloadfilename'
+  end
+  object estartaddress: TEdit
+    Left = 192
+    Height = 23
+    Top = 112
+    Width = 93
+    TabOrder = 1
+    Text = 'estartaddress'
+  end
+  object lfilename: TLabel
+    Left = 24
+    Height = 15
+    Top = 40
+    Width = 58
+    Caption = 'File to load'
+    ParentColor = False
+  end
+  object lstartaddress: TLabel
+    Left = 24
+    Height = 15
+    Top = 120
+    Width = 102
+    Caption = 'Start address in hex'
+    ParentColor = False
+  end
+  object bload: TButton
+    Left = 24
+    Height = 37
+    Top = 208
+    Width = 128
+    Caption = 'Load file'
+    TabOrder = 2
+    OnClick = bloadClick
+  end
+  object bclose: TButton
+    Left = 384
+    Height = 35
+    Top = 413
+    Width = 113
+    Caption = 'Exit'
+    TabOrder = 4
+    OnClick = bcloseClick
+  end
+  object rgtype: TRadioGroup
+    Left = 349
+    Height = 366
+    Top = 26
+    Width = 200
+    AutoFill = True
+    Caption = 'File type'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 346
+    ClientWidth = 196
+    TabOrder = 5
+    object blbin: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 0
+      Width = 184
+      Caption = 'Binary (.bin)'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+      OnClick = blbinClick
+    end
+    object blPRGfile: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 39
+      Width = 184
+      Caption = 'PRG (.prg)'
+      TabOrder = 1
+      OnClick = blPRGfileClick
+    end
+    object blhex: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 78
+      Width = 184
+      Caption = 'Hex (.hex)'
+      TabOrder = 2
+      OnClick = blhexClick
+    end
+    object blintelhex: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 117
+      Width = 184
+      Caption = 'Intel hex (.ihex)'
+      TabOrder = 3
+      OnClick = blintelhexClick
+    end
+    object blmotosrec: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 156
+      Width = 184
+      Caption = 'Motorola S record (.srec)'
+      TabOrder = 4
+      OnClick = blmotosrecClick
+    end
+    object blmospaper: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 195
+      Width = 184
+      Caption = 'MOS papertape (.pap,.ptp)'
+      TabOrder = 5
+      OnClick = blmospaperClick
+    end
+    object bltimtape: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 234
+      Width = 184
+      Caption = 'TIM papertape (.tim)'
+      TabOrder = 8
+      OnClick = bltimtapeClick
+    end
+    object blapple1: TRadioButton
+      Left = 6
+      Height = 39
+      Top = 273
+      Width = 184
+      Caption = 'Apple 1 hex (.ahex)'
+      TabOrder = 6
+      OnClick = blapple1Click
+    end
+    object blkimtape: TRadioButton
+      Left = 6
+      Height = 34
+      Top = 312
+      Width = 184
+      Caption = 'KIM-1 Tape (.tap)'
+      TabOrder = 7
+      OnClick = blkimtapeClick
+    end
+  end
+  object mstatus: TMemo
+    Left = 24
+    Height = 184
+    Top = 264
+    Width = 316
+    Lines.Strings = (
+      'mstatus'
+    )
+    ScrollBars = ssAutoBoth
+    TabOrder = 6
+  end
+  object bmemory: TButton
+    Left = 192
+    Height = 37
+    Top = 208
+    Width = 108
+    Caption = 'to memory'
+    TabOrder = 3
+    OnClick = bmemoryClick
+  end
+  object bloadmemory: TButton
+    Left = 296
+    Height = 24
+    Top = 64
+    Width = 33
+    Caption = '...'
+    TabOrder = 7
+    OnClick = bloadmemoryClick
+  end
+  object dialogFileLoad: TOpenDialog
+    Filter = 'All files|*.bin'
+    Left = 59
+    Top = 149
+  end
+end

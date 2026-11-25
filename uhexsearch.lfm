@@ -1,0 +1,110 @@
+object FHexSearch: TFHexSearch
+  Left = 1020
+  Height = 164
+  Top = 560
+  Width = 540
+  Caption = 'HEX Search in Memory'
+  ClientHeight = 164
+  ClientWidth = 540
+  OnCreate = FormCreate
+  LCLVersion = '2.2.2.0'
+  object Ehexsearchbyte1: TEdit
+    Left = 128
+    Height = 23
+    Top = 15
+    Width = 43
+    Alignment = taCenter
+    OnEditingDone = Ehexsearchbyte1EditingDone
+    TabOrder = 0
+  end
+  object Ehexsearchbyte2: TEdit
+    Left = 184
+    Height = 23
+    Top = 15
+    Width = 43
+    Alignment = taCenter
+    OnEditingDone = Ehexsearchbyte2EditingDone
+    TabOrder = 1
+  end
+  object Ehexsearchbyte3: TEdit
+    Left = 242
+    Height = 23
+    Top = 15
+    Width = 43
+    Alignment = taCenter
+    OnEditingDone = Ehexsearchbyte3EditingDone
+    TabOrder = 2
+  end
+  object BStartHexSearch: TButton
+    Left = 128
+    Height = 30
+    Top = 101
+    Width = 64
+    Caption = 'Search '
+    OnClick = BStartHexSearchClick
+    TabOrder = 5
+  end
+  object EHexSearchStart: TEdit
+    Left = 128
+    Height = 23
+    Top = 57
+    Width = 63
+    Alignment = taCenter
+    OnEditingDone = EHexSearchStartEditingDone
+    TabOrder = 3
+  end
+  object EHexSearchEnd: TEdit
+    Left = 220
+    Height = 23
+    Top = 56
+    Width = 65
+    Alignment = taCenter
+    OnEditingDone = EHexSearchEndEditingDone
+    TabOrder = 4
+  end
+  object BHexSearchClear: TButton
+    Left = 215
+    Height = 30
+    Top = 101
+    Width = 70
+    Caption = 'Clear'
+    OnClick = BHexSearchClearClick
+    TabOrder = 6
+  end
+  object MhexSearch: TMemo
+    Left = 312
+    Height = 117
+    Top = 12
+    Width = 166
+    Lines.Strings = (
+      'MhexSearch'
+    )
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 7
+  end
+  object LSearchhexfor: TLabel
+    Left = 16
+    Height = 15
+    Top = 24
+    Width = 53
+    Caption = 'Search for'
+    ParentColor = False
+  end
+  object LSearchmemory: TLabel
+    Left = 16
+    Height = 15
+    Top = 59
+    Width = 83
+    Caption = 'Search memory'
+    ParentColor = False
+  end
+  object LTo: TLabel
+    Left = 198
+    Height = 15
+    Top = 62
+    Width = 11
+    Caption = 'to'
+    ParentColor = False
+  end
+end

@@ -1,0 +1,640 @@
+object FwatchBreak: TFwatchBreak
+  Left = 801
+  Height = 478
+  Top = 234
+  Width = 590
+  HorzScrollBar.Page = 566
+  VertScrollBar.Page = 446
+  AutoScroll = True
+  Caption = 'Watches and Breakpoints'
+  ClientHeight = 478
+  ClientWidth = 590
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  LCLVersion = '2.2.2.0'
+  object ewatch1: TEdit
+    Left = 36
+    Height = 23
+    Top = 56
+    Width = 99
+    OnEditingDone = ewatch1EditingDone
+    TabOrder = 0
+    Text = 'ewatch1'
+  end
+  object ewatch2: TEdit
+    Left = 36
+    Height = 23
+    Top = 88
+    Width = 99
+    OnEditingDone = ewatch2EditingDone
+    TabOrder = 2
+    Text = 'ewatch2'
+  end
+  object ewatch3: TEdit
+    Left = 36
+    Height = 23
+    Top = 120
+    Width = 99
+    OnEditingDone = ewatch3EditingDone
+    TabOrder = 4
+    Text = 'ewatch3'
+  end
+  object ewatch4: TEdit
+    Left = 36
+    Height = 23
+    Top = 152
+    Width = 99
+    OnEditingDone = ewatch4EditingDone
+    TabOrder = 6
+    Text = 'ewatch4'
+  end
+  object ewatch5: TEdit
+    Left = 36
+    Height = 23
+    Top = 184
+    Width = 99
+    OnEditingDone = ewatch5EditingDone
+    TabOrder = 8
+    Text = 'ewatch5'
+  end
+  object ewatch6: TEdit
+    Left = 36
+    Height = 23
+    Top = 216
+    Width = 99
+    OnEditingDone = ewatch6EditingDone
+    TabOrder = 10
+    Text = 'ewatch6'
+  end
+  object ewatch7: TEdit
+    Left = 36
+    Height = 23
+    Top = 251
+    Width = 99
+    OnEditingDone = ewatch7EditingDone
+    TabOrder = 12
+    Text = 'ewatch7'
+  end
+  object ewatch8: TEdit
+    Left = 36
+    Height = 23
+    Top = 284
+    Width = 99
+    OnEditingDone = ewatch8EditingDone
+    TabOrder = 14
+    Text = 'ewatch8'
+  end
+  object ewatch9: TEdit
+    Left = 36
+    Height = 23
+    Top = 320
+    Width = 99
+    OnEditingDone = ewatch9EditingDone
+    TabOrder = 16
+    Text = 'ewatch9'
+  end
+  object ewatch10: TEdit
+    Left = 36
+    Height = 23
+    Top = 352
+    Width = 99
+    OnEditingDone = ewatch10EditingDone
+    TabOrder = 18
+    Text = 'ewatch10'
+  end
+  object bclearwatches: TButton
+    Left = 36
+    Height = 36
+    Top = 410
+    Width = 132
+    Caption = 'Clear watchpoints'
+    OnClick = bclearwatchesClick
+    TabOrder = 40
+  end
+  object bclearbreaks: TButton
+    Left = 217
+    Height = 36
+    Top = 410
+    Width = 131
+    Caption = 'Clear breakpoints'
+    OnClick = bclearbreaksClick
+    TabOrder = 41
+  end
+  object ebreak1: TEdit
+    Left = 217
+    Height = 23
+    Top = 56
+    Width = 99
+    OnEditingDone = ebreak1EditingDone
+    TabOrder = 20
+    Text = 'ebreak1'
+  end
+  object cwatch1: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 56
+    Width = 26
+    Caption = '1'
+    OnEditingDone = cwatch1EditingDone
+    TabOrder = 1
+  end
+  object cwatch2: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 88
+    Width = 26
+    Caption = '2'
+    OnEditingDone = cwatch2EditingDone
+    TabOrder = 3
+  end
+  object cwatch3: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 120
+    Width = 26
+    Caption = '3'
+    OnEditingDone = cwatch3EditingDone
+    TabOrder = 5
+  end
+  object cwatch4: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 152
+    Width = 26
+    Caption = '4'
+    OnEditingDone = cwatch4EditingDone
+    TabOrder = 7
+  end
+  object cwatch5: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 184
+    Width = 26
+    Caption = '5'
+    OnEditingDone = cwatch5EditingDone
+    TabOrder = 9
+  end
+  object cwatch6: TCheckBox
+    Left = 152
+    Height = 19
+    Top = 216
+    Width = 26
+    Caption = '6'
+    OnEditingDone = cwatch6EditingDone
+    TabOrder = 11
+  end
+  object cwatch7: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 248
+    Width = 26
+    Caption = '7'
+    OnEditingDone = cwatch7EditingDone
+    TabOrder = 13
+  end
+  object cwatch8: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 284
+    Width = 26
+    Caption = '8'
+    OnEditingDone = cwatch8EditingDone
+    TabOrder = 15
+  end
+  object cwatch9: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 320
+    Width = 26
+    Caption = '9'
+    OnEditingDone = cwatch9EditingDone
+    TabOrder = 17
+  end
+  object cwatch10: TCheckBox
+    Left = 151
+    Height = 19
+    Top = 352
+    Width = 32
+    Caption = '10'
+    OnEditingDone = cwatch10EditingDone
+    TabOrder = 19
+  end
+  object cbreak1: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 56
+    Width = 26
+    Caption = '1'
+    OnEditingDone = cbreak1EditingDone
+    TabOrder = 21
+  end
+  object bexitwatch: TButton
+    Left = 409
+    Height = 36
+    Top = 410
+    Width = 130
+    Caption = 'Exit'
+    OnClick = bexitwatchClick
+    TabOrder = 43
+  end
+  object ebreak2: TEdit
+    Left = 216
+    Height = 23
+    Top = 88
+    Width = 99
+    OnEditingDone = ebreak2EditingDone
+    TabOrder = 22
+    Text = 'ebreak2'
+  end
+  object ebreak3: TEdit
+    Left = 217
+    Height = 23
+    Top = 120
+    Width = 99
+    OnEditingDone = ebreak3EditingDone
+    TabOrder = 24
+    Text = 'ebreak3'
+  end
+  object ebreak4: TEdit
+    Left = 217
+    Height = 23
+    Top = 152
+    Width = 99
+    OnEditingDone = ebreak4EditingDone
+    TabOrder = 26
+    Text = 'ebreak4'
+  end
+  object ebreak5: TEdit
+    Left = 216
+    Height = 23
+    Top = 184
+    Width = 99
+    OnEditingDone = ebreak5EditingDone
+    TabOrder = 28
+    Text = 'ebreak5'
+  end
+  object ebreak6: TEdit
+    Left = 217
+    Height = 23
+    Top = 216
+    Width = 99
+    OnEditingDone = ebreak6EditingDone
+    TabOrder = 30
+    Text = 'ebreak6'
+  end
+  object ebreak7: TEdit
+    Left = 217
+    Height = 23
+    Top = 251
+    Width = 99
+    OnEditingDone = ebreak7EditingDone
+    TabOrder = 32
+    Text = 'ebreak7'
+  end
+  object ebreak8: TEdit
+    Left = 216
+    Height = 23
+    Top = 284
+    Width = 99
+    OnEditingDone = ebreak8EditingDone
+    TabOrder = 34
+    Text = 'ebreak8'
+  end
+  object ebreak9: TEdit
+    Left = 217
+    Height = 23
+    Top = 320
+    Width = 99
+    OnEditingDone = ebreak9EditingDone
+    TabOrder = 36
+    Text = 'ebreak9'
+  end
+  object ebreak10: TEdit
+    Left = 217
+    Height = 23
+    Top = 352
+    Width = 99
+    OnEditingDone = ebreak10EditingDone
+    TabOrder = 38
+    Text = 'ebreak10'
+  end
+  object cbreak2: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 88
+    Width = 26
+    Caption = '2'
+    OnEditingDone = cbreak2EditingDone
+    TabOrder = 23
+  end
+  object cbreak3: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 120
+    Width = 26
+    Caption = '3'
+    OnEditingDone = cbreak3EditingDone
+    TabOrder = 25
+  end
+  object cbreak4: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 152
+    Width = 26
+    Caption = '4'
+    OnEditingDone = cbreak4EditingDone
+    TabOrder = 27
+  end
+  object cbreak5: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 184
+    Width = 26
+    Caption = '5'
+    OnEditingDone = cbreak5EditingDone
+    TabOrder = 29
+  end
+  object cbreak6: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 216
+    Width = 26
+    Caption = '6'
+    OnEditingDone = cbreak6EditingDone
+    TabOrder = 31
+  end
+  object cbreak7: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 251
+    Width = 26
+    Caption = '7'
+    OnEditingDone = cbreak7EditingDone
+    TabOrder = 33
+  end
+  object cbreak8: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 288
+    Width = 26
+    Caption = '8'
+    OnEditingDone = cbreak8EditingDone
+    TabOrder = 35
+  end
+  object cbreak9: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 320
+    Width = 26
+    Caption = '9'
+    OnEditingDone = cbreak9EditingDone
+    TabOrder = 37
+  end
+  object cbreak10: TCheckBox
+    Left = 329
+    Height = 19
+    Top = 352
+    Width = 32
+    Caption = '10'
+    OnEditingDone = cbreak10EditingDone
+    TabOrder = 39
+  end
+  object lwatches: TLabel
+    Left = 38
+    Height = 15
+    Top = 13
+    Width = 70
+    Caption = 'Watchpoints'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lwatches1: TLabel
+    Left = 216
+    Height = 15
+    Top = 13
+    Width = 67
+    Caption = 'Breakpoints'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lenabled: TLabel
+    Left = 151
+    Height = 15
+    Top = 13
+    Width = 42
+    Caption = 'Enabled'
+    ParentColor = False
+  end
+  object lenabled1: TLabel
+    Left = 329
+    Height = 15
+    Top = 13
+    Width = 42
+    Caption = 'Enabled'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object lwatchpoints: TLabel
+    Left = 400
+    Height = 15
+    Top = 13
+    Width = 50
+    Caption = 'Register '
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lenabledregisters: TLabel
+    Left = 480
+    Height = 15
+    Top = 13
+    Width = 42
+    Caption = 'Enabled'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object eregpointA: TEdit
+    Left = 409
+    Height = 23
+    Top = 53
+    Width = 47
+    OnEditingDone = eregpointAEditingDone
+    TabOrder = 44
+    Text = 'eregpointA'
+  end
+  object cwatchregA: TCheckBox
+    Left = 480
+    Height = 19
+    Top = 53
+    Width = 28
+    Caption = 'A'
+    OnEditingDone = cwatchregAEditingDone
+    TabOrder = 45
+  end
+  object eregpointX: TEdit
+    Left = 409
+    Height = 23
+    Top = 85
+    Width = 47
+    OnEditingDone = eregpointXEditingDone
+    TabOrder = 46
+    Text = 'eregpointX'
+  end
+  object eregpointY: TEdit
+    Left = 409
+    Height = 23
+    Top = 117
+    Width = 47
+    OnEditingDone = eregpointYEditingDone
+    TabOrder = 48
+    Text = 'eregpointY'
+  end
+  object cwatchregX: TCheckBox
+    Left = 480
+    Height = 19
+    Top = 85
+    Width = 27
+    Caption = 'X'
+    OnEditingDone = cwatchregXEditingDone
+    TabOrder = 47
+  end
+  object cwatchregY: TCheckBox
+    Left = 480
+    Height = 19
+    Top = 117
+    Width = 27
+    Caption = 'Y'
+    OnEditingDone = cwatchregYEditingDone
+    TabOrder = 49
+  end
+  object bclearRegisters: TButton
+    Left = 408
+    Height = 36
+    Top = 189
+    Width = 131
+    Caption = 'Clear Registers '
+    OnClick = bclearRegistersClick
+    TabOrder = 42
+  end
+  object Label1: TLabel
+    Left = 400
+    Height = 15
+    Top = 29
+    Width = 68
+    Caption = 'watchpoints'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object eregpointSP: TEdit
+    Left = 409
+    Height = 23
+    Top = 149
+    Width = 47
+    OnEditingDone = eregpointSPEditingDone
+    TabOrder = 50
+    Text = 'eregpointSP'
+  end
+  object cwatchregSP: TCheckBox
+    Left = 480
+    Height = 19
+    Top = 149
+    Width = 86
+    Caption = 'Stackpointer'
+    OnEditingDone = cwatchregSPEditingDone
+    TabOrder = 51
+  end
+  object ctrace: TCheckBox
+    Left = 408
+    Height = 25
+    Top = 232
+    Width = 83
+    Caption = 'Trace log'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    OnChange = ctraceChange
+    OnClick = ctraceClick
+    ParentFont = False
+    TabOrder = 52
+  end
+  object cprofile: TCheckBox
+    Left = 408
+    Height = 25
+    Top = 307
+    Width = 79
+    Caption = 'Profiling'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    OnChange = cprofileChange
+    ParentFont = False
+    TabOrder = 53
+  end
+  object bviewpofiler: TButton
+    Left = 409
+    Height = 30
+    Top = 350
+    Width = 130
+    Caption = 'View profiler hits'
+    OnClick = bviewpofilerClick
+    TabOrder = 54
+  end
+  object btracelogfolder: TButton
+    Left = 409
+    Height = 38
+    Top = 263
+    Width = 130
+    Caption = 'Trace log folder'
+    OnClick = btracelogfolderClick
+    TabOrder = 55
+  end
+  object DialogLogfiles: TSelectDirectoryDialog
+    Left = 366
+    Top = 414
+  end
+end

@@ -1,0 +1,127 @@
+object Fconsole: TFconsole
+  Left = 109
+  Height = 415
+  Top = 364
+  Width = 841
+  BorderWidth = 5
+  Caption = 'VT  console'
+  ClientHeight = 415
+  ClientWidth = 841
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnMouseWheel = FormMouseWheel
+  OnUTF8KeyPress = FormUTF8KeyPress
+  LCLVersion = '3.8.0.0'
+  Visible = True
+  object Image_mon1: TImage
+    Left = 112
+    Height = 83
+    Top = 145
+    Width = 199
+    OnMouseDown = ImageMouseDown
+    OnMouseMove = ImageMouseMove
+    OnMouseUp = ImageMouseUp
+    PopupMenu = PopupMEnuConsole
+  end
+  object Image_mon2: TImage
+    Left = 409
+    Height = 87
+    Top = 145
+    Width = 220
+    OnMouseDown = ImageMouseDown
+    OnMouseMove = ImageMouseMove
+    OnMouseUp = ImageMouseUp
+    PopupMenu = PopupMEnuConsole
+  end
+  object ScrollBar1: TScrollBar
+    Left = 816
+    Height = 570
+    Top = 9
+    Width = 20
+    Kind = sbVertical
+    LargeChange = 25
+    Max = 0
+    PageSize = 0
+    TabOrder = 0
+    OnScroll = ScrollBar1Scroll
+  end
+  object timer_Screenrefresh: TTimer
+    Interval = 50
+    OnTimer = timer_ScreenrefreshTimer
+    Left = 88
+    Top = 288
+  end
+  object Cursortimer: TTimer
+    Interval = 200
+    OnTimer = CursortimerTimer
+    Left = 200
+    Top = 288
+  end
+  object PopupMEnuConsole: TPopupMenu
+    OnPopup = PopupMenuConsolePopup
+    Left = 304
+    Top = 288
+    object MCopy: TMenuItem
+      Caption = 'Copy'
+      OnClick = MCopyClick
+    end
+    object MPaste: TMenuItem
+      Caption = 'Paste'
+      OnClick = MPasteClick
+    end
+    object mResetConsole: TMenuItem
+      Caption = 'Reset console'
+      OnClick = mResetConsoleClick
+    end
+    object MColorfont: TMenuItem
+      Caption = 'Color font'
+      OnClick = MColorfontClick
+    end
+    object MColorBack: TMenuItem
+      Caption = 'Background color'
+      OnClick = MColorBackClick
+    end
+    object MLFtoCR: TMenuItem
+      Caption = 'Add LF to CR at input'
+      OnClick = MLFtoCRClick
+    end
+    object MNoLFtoCR: TMenuItem
+      Caption = 'No LF to CR at input'
+      OnClick = MNoLFtoCRClick
+    end
+  end
+  object ColorDialogFontConsole: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 408
+    Top = 288
+  end
+end

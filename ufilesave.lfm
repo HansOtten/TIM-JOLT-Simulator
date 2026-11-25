@@ -1,0 +1,261 @@
+object ffilesave: Tffilesave
+  Left = 910
+  Height = 508
+  Top = 319
+  Width = 541
+  Caption = 'Save memory to file'
+  ClientHeight = 508
+  ClientWidth = 541
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '2.2.2.0'
+  object lsavetomemory: TLabel
+    Left = 26
+    Height = 21
+    Top = 14
+    Width = 139
+    Caption = 'Save memory to file'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object esavefilename: TEdit
+    Left = 26
+    Height = 23
+    Top = 71
+    Width = 246
+    OnEditingDone = esavefilenameEditingDone
+    ReadOnly = True
+    TabOrder = 0
+    Text = 'esavefilename'
+  end
+  object Lfilesave: TLabel
+    Left = 26
+    Height = 15
+    Top = 45
+    Width = 82
+    Caption = 'File to save into'
+    ParentColor = False
+  end
+  object estartaddress: TEdit
+    Left = 200
+    Height = 23
+    Top = 112
+    Width = 65
+    OnEditingDone = estartaddressEditingDone
+    TabOrder = 1
+  end
+  object lstartaddress: TLabel
+    Left = 27
+    Height = 15
+    Top = 118
+    Width = 102
+    Caption = 'Start address in hex'
+    ParentColor = False
+  end
+  object bfilesave: TButton
+    Left = 24
+    Height = 33
+    Top = 280
+    Width = 109
+    Caption = 'Save File'
+    OnClick = bfilesaveClick
+    TabOrder = 4
+  end
+  object mstatus: TMemo
+    Left = 26
+    Height = 153
+    Top = 328
+    Width = 301
+    Lines.Strings = (
+      'mstatus'
+    )
+    ScrollBars = ssAutoBoth
+    TabOrder = 6
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 335
+    Height = 350
+    Top = 28
+    Width = 192
+    AutoFill = True
+    Caption = 'Filetype'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 330
+    ClientWidth = 188
+    TabOrder = 7
+    object bsbin: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 0
+      Width = 176
+      Caption = 'Binary (.bin)'
+      Checked = True
+      OnClick = bsbinClick
+      TabOrder = 0
+      TabStop = True
+    end
+    object bsPRGfile: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 33
+      Width = 176
+      Caption = 'PRG (.prg)'
+      OnClick = bsPRGfileClick
+      TabOrder = 1
+    end
+    object bshex: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 66
+      Width = 176
+      Caption = 'Hex (.hex)'
+      OnClick = bshexClick
+      TabOrder = 2
+    end
+    object bsintelhex: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 99
+      Width = 176
+      Caption = 'Intel hex (.ihex)'
+      OnClick = bsintelhexClick
+      TabOrder = 3
+    end
+    object bsmotosrec: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 132
+      Width = 176
+      Caption = 'Mototola S-record (.srec)'
+      OnClick = bsmotosrecClick
+      TabOrder = 4
+    end
+    object bsmospaper: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 165
+      Width = 176
+      Caption = 'MOS Papertape (.pap,.ptp)'
+      OnClick = bsmospaperClick
+      TabOrder = 5
+    end
+    object bstimtape: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 198
+      Width = 176
+      Caption = 'TIM papertape (.tim)'
+      OnClick = bstimtapeClick
+      TabOrder = 6
+    end
+    object bsapple1: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 231
+      Width = 176
+      Caption = 'Apple 1 hex (.ahex)'
+      OnClick = bsapple1Click
+      TabOrder = 7
+    end
+    object bskimtape: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 264
+      Width = 176
+      Caption = 'KIM-1 Tape (.tap)'
+      OnClick = bskimtapeClick
+      TabOrder = 8
+    end
+    object bsdefinetype: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 297
+      Width = 176
+      Caption = 'Define Byte (.asm)'
+      OnClick = bsdefinetypeClick
+      TabOrder = 9
+    end
+  end
+  object bexit: TButton
+    Left = 360
+    Height = 33
+    Top = 448
+    Width = 112
+    Caption = 'Exit'
+    OnClick = bexitClick
+    TabOrder = 5
+  end
+  object lend: TLabel
+    Left = 27
+    Height = 15
+    Top = 158
+    Width = 98
+    Caption = 'End address in hex'
+    ParentColor = False
+  end
+  object eend: TEdit
+    Left = 200
+    Height = 23
+    Top = 152
+    Width = 65
+    OnEditingDone = eendEditingDone
+    TabOrder = 2
+  end
+  object etapeID: TEdit
+    Left = 200
+    Height = 23
+    Top = 200
+    Width = 40
+    OnEditingDone = etapeIDEditingDone
+    TabOrder = 3
+  end
+  object ltapeID: TLabel
+    Left = 26
+    Height = 15
+    Top = 200
+    Width = 62
+    Caption = 'KIM Tape ID'
+    ParentColor = False
+  end
+  object ldefinetype: TLabel
+    Left = 27
+    Height = 15
+    Top = 240
+    Width = 57
+    Caption = 'Define text'
+    ParentColor = False
+  end
+  object edefinetype: TEdit
+    Left = 200
+    Height = 23
+    Top = 240
+    Width = 80
+    TabOrder = 8
+  end
+  object bsavememory: TButton
+    Left = 292
+    Height = 23
+    Top = 71
+    Width = 34
+    Caption = '...'
+    OnClick = bsavememoryClick
+    TabOrder = 9
+  end
+  object DialogFileSave: TSaveDialog
+    Left = 480
+    Top = 392
+  end
+end

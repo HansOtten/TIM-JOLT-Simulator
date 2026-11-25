@@ -1,0 +1,55 @@
+object fsettings: Tfsettings
+  Left = 490
+  Height = 274
+  Top = 431
+  Width = 711
+  HorzScrollBar.Page = 563
+  VertScrollBar.Page = 216
+  AutoScroll = True
+  Caption = 'Settings'
+  ClientHeight = 274
+  ClientWidth = 711
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  LCLVersion = '3.8.0.0'
+  object Bsetdefaultworkingdir: TButton
+    Left = 37
+    Height = 52
+    Top = 22
+    Width = 214
+    Caption = 'Set default working folder'
+    TabOrder = 0
+    OnClick = BsetdefaultworkingdirClick
+  end
+  object bexit: TButton
+    Left = 37
+    Height = 39
+    Top = 177
+    Width = 214
+    Caption = 'Exit'
+    TabOrder = 1
+    OnClick = bexitClick
+  end
+  object bsetupserialport: TButton
+    Left = 380
+    Height = 60
+    Top = 23
+    Width = 183
+    Caption = 'Setup serial port'
+    TabOrder = 2
+    OnClick = bsetupserialportClick
+  end
+  object BUseSerialPort: TButton
+    Left = 380
+    Height = 58
+    Top = 104
+    Width = 183
+    Caption = 'Use Serial Port'
+    TabOrder = 3
+    OnClick = BUseSerialPortClick
+  end
+  object SelectDefaultDirectoryDialog: TSelectDirectoryDialog
+    Left = 64
+    Top = 224
+  end
+end

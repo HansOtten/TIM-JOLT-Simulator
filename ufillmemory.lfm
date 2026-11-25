@@ -1,0 +1,80 @@
+object FFillmemory: TFFillmemory
+  Left = 812
+  Height = 178
+  Top = 423
+  Width = 289
+  Caption = 'Fill Memory'
+  ClientHeight = 178
+  ClientWidth = 289
+  OnCreate = FormCreate
+  LCLVersion = '2.2.2.0'
+  object BFillMove: TButton
+    Left = 91
+    Height = 30
+    Top = 109
+    Width = 63
+    Caption = 'Fill'
+    OnClick = BFillMoveClick
+    TabOrder = 4
+  end
+  object EFillStart: TEdit
+    Left = 91
+    Height = 23
+    Top = 20
+    Width = 63
+    Alignment = taCenter
+    OnEditingDone = EFillStartEditingDone
+    TabOrder = 0
+  end
+  object EFillEnd: TEdit
+    Left = 195
+    Height = 23
+    Top = 20
+    Width = 65
+    Alignment = taCenter
+    OnEditingDone = EFillEndEditingDone
+    TabOrder = 1
+  end
+  object BFillClear: TButton
+    Left = 195
+    Height = 30
+    Top = 110
+    Width = 65
+    Caption = 'Clear'
+    OnClick = BFillClearClick
+    TabOrder = 3
+  end
+  object LFillFrom: TLabel
+    Left = 21
+    Height = 15
+    Top = 20
+    Width = 28
+    Caption = 'From'
+    ParentColor = False
+  end
+  object LTo: TLabel
+    Left = 170
+    Height = 15
+    Top = 20
+    Width = 11
+    Caption = 'to'
+    ParentColor = False
+  end
+  object EFillbyte: TEdit
+    Left = 91
+    Height = 23
+    Top = 64
+    Width = 46
+    Alignment = taCenter
+    OnEditingDone = EFillbyteEditingDone
+    TabOrder = 2
+  end
+  object LFillbyte: TLabel
+    Left = 21
+    Height = 15
+    Top = 66
+    Width = 41
+    Caption = 'Fill byte'
+    ParentColor = False
+  end
+end
