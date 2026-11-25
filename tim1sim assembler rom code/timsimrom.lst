@@ -1,0 +1,207 @@
+0001   0000             ; 
+0002   0000             ; TIM simulator ROM
+0003   0000             ; 6502 part of the TIM-1 ROm simulation 
+0004   0000             ;
+0005   0000             ; Hans Otten, 2021, 2023
+0006   0000             ;
+0007   0000             ; Version 0.2 november 2023
+0008   0000             ; - emulate an ACIA 6850 at 1600
+0009   0000             ; - some handy routines
+0010   0000             ;
+0011   0000             ; MIT License
+0012   0000             ;
+0013   0000             ;  Copyright (c) 2023 Hans Otten 
+0014   0000             ;
+0015   0000             ; Permission is hereby granted, free of charge, to any person obtaining a copy
+0016   0000             ; of this software and associated documentation files (the "Software"), to deal
+0017   0000             ; in the Software without restriction, including without limitation the rights
+0018   0000             ; to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+0019   0000             ; copies of the Software, and to permit persons to whom the Software is
+0020   0000             ; furnished to do so, subject to the following conditions:
+0021   0000             ;
+0022   0000             ; The above copyright notice and this permission notice shall be included in all
+0023   0000             ; copies or substantial portions of the Software.
+0024   0000             ;
+0025   0000             ; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+0026   0000             ; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+0027   0000             ; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+0028   0000             ; AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+0029   0000             ; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+0030   0000             ; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+0031   0000             ; SOFTWARE.
+0032   0000             ; 
+0033   0000             ; TIM-1 ROM and 6530 addresses
+0034   0000             ;
+0035   0000             ;
+0036   0000             ; TIM ROM addressses
+0037   0000             ;
+0038   0000             MSGPRTR  =       226                   ; One nbenaeth first TIM zeropage 
+0039   0000             ; characters        
+0040   0000             CR  = $0D
+0041   0000             LF  = $0A
+0042   0000             ; Init CPU and console
+0043   0000             ;
+0044   F800                     .org $F800
+0045   F800 4C 0F F8    START	JMP TIMROM		
+0046   F803 4C 7E F8    INITS   JMP INITACIA        
+0047   F806 4C 89 F8    OUTSER  JMP OUTACIA
+0048   F809 4C A3 F8    INTIM   JMP INECHO   					; TIM also does hardware echo in software 
+0049   F80C 4C 98 F8    INSER   JMP INACIA
+0050   F80F             
+0051   F80F A2 FF       TIMROM  LDX #$FF  
+0052   F811 9A                  TXS   
+0053   F812 D8                  CLD   
+0054   F813 20 03 F8            JSR INITS               ; clear console
+0055   F816             ;
+0056   F816             ; Welcome message
+0057   F816             ; 
+0058   F816             
+0059   F816 A9 5A               LDA #(STRTMSG & $FF)    ; high part 
+0060   F818 85 E2               STA MSGPRTR  
+0061   F81A A9 F8               LDA #(STRTMSG >> 8)     ; low part of address of message
+0062   F81C 85 E3               STA MSGPRTR + 1
+0063   F81E 20 22 F8            JSR PRMSG
+0064   F821 00                  BRK						; back to TIM
+0065   F822             
+0066   F822             ;
+0067   F822             ; PRMSG 
+0068   F822             ;   print string to ACIA 
+0069   F822             ;   A,Y contain address of message string
+0070   F822             ;   null terminated string, max 256 chars
+0071   F822             ;
+0072   F822             
+0073   F822             
+0074   F822             PRMSG   
+0075   F822 A0 00               LDY #$00  
+0076   F824 B1 E2       NPRMSG  LDA (MSGPRTR),Y  
+0077   F826 F0 09               BEQ EPRMSG  
+0078   F828 20 06 F8            JSR OUTSER  
+0079   F82B C8                  INY
+0080   F82C F0 03               BEQ EPRMSG
+0081   F82E 4C 24 F8            JMP NPRMSG  
+0082   F831 60          EPRMSG  RTS   
+0083   F832             ; 
+0084   F832             ; PRINT CRLF to ACIA
+0085   F832             ;  
+0086   F832             CRLF    
+0087   F832 A9 0D               LDA #CR 
+0088   F834 20 06 F8            JSR OUTSER  
+0089   F837 A9 0A               LDA #LF  
+0090   F839 20 06 F8            JSR OUTSER
+0091   F83C 60                  RTS 
+0092   F83D             ;
+0093   F83D             ; Print space
+0094   F83D             ;
+0095   F83D             SPACE
+0096   F83D A9 20               LDA #' '
+0097   F83F 20 06 F8            JSR OUTSER
+0098   F842 60                  RTS
+0099   F843             ;
+0100   F843             ; Print byte as hex number 
+0101   F843             ;
+0102   F843             PRHEX   
+0103   F843 48                  PHA                 ; save low nibble       
+0104   F844 4A                  LSR A               ; move high nibble to low 
+0105   F845 4A                  LSR A
+0106   F846 4A                  LSR A
+0107   F847 4A                  LSR A   
+0108   F848 20 4C F8            JSR PRNYB           ; print high nibble 
+0109   F84B 68                  PLA                 ; get lower nibble back                     
+0110   F84C 29 0F       PRNYB   AND #$0F
+0111   F84E C9 0A               CMP #10
+0112   F850 90 02               BCC PRDIG           ; If 0-9, print
+0113   F852 69 06               ADC #6              ;  convert to 'A..F'
+0114   F854 69 30       PRDIG   ADC #'0'
+0115   F856 20 06 F8            JSR OUTSER         ;  print 
+0116   F859 60                  RTS
+0117   F85A 54 49 4D 20 STRTMSG .text "TIM Simulator ROM HJCO 2023 V0.2"
+0117   F85E 53 69 6D 75 
+0117   F862 6C 61 74 6F 
+0117   F866 72 20 52 4F 
+0117   F86A 4D 20 48 4A 
+0117   F86E 43 4F 20 32 
+0117   F872 30 32 33 20 
+0117   F876 56 30 2E 32 
+0118   F87A 0D 0A       		.byte CR, LF
+0119   F87C 2E          		.text "."
+0120   F87D 00                  .byte 0
+0121   F87E                    
+0122   F87E             ;
+0123   F87E             ; ACIA routines for TIM Simulator
+0124   F87E             ;
+0125   F87E             ACIAbase = $FE00		;
+0126   F87E             ;
+0127   F87E             ACIAC = ACIAbase  
+0128   F87E             ; write 
+0129   F87E             ; bit 0 CR0 counter divide Reset if CR0 and CR 1 1
+0130   F87E             ; bit 1 CR1 counter divide
+0131   F87E             ; bit 2 CR2 word select 1
+0132   F87E             ; bit 3 CR3 word select 2
+0133   F87E             ; bit 4 CR4 word select 3
+0134   F87E             ; bit 5 CR5 transmit control 1
+0135   F87E             ; bit 6 CR6 transmit control 2
+0136   F87E             ; bit 7 CR7 receive interrupt enable
+0137   F87E             ;
+0138   F87E             
+0139   F87E             ACIAS = ACIAbase  
+0140   F87E             ; read  
+0141   F87E             ; bit 0 RDR Receive data register full if databyte received 
+0142   F87E             ; bit 1 TDR Transmit Data register empty
+0143   F87E             ; bit 2 DCD
+0144   F87E             ; bit 3 CTS
+0145   F87E             ; bit 4 FE
+0146   F87E             ; bit 5 OVRN
+0147   F87E             ; bit 6 PE
+0148   F87E             ; bit 7 IRQ
+0149   F87E             ;
+0150   F87E             ACIAT = ACIAbase + 1        ; write databyte to sent, makes TDRE bit low until data sent out
+0151   F87E             ACIAR = ACIAbase + 1        ; databyte received Reading makes RDR low
+0152   F87E             ;
+0153   F87E A9 03       INITACIA LDA #3
+0154   F880 8D 00 FE            STA ACIAC           ; reset ACIA
+0155   F883 A9 11               LDA #$11
+0156   F885 8D 00 FE            STA  ACIAC          ; CR0 =1 divide 16 CR4 = 1 8 bits 2 stop bits 
+0157   F888 60                  RTS
+0158   F889             ;
+0159   F889 29 7F       OUTACIA AND #$7F	; 7 bit 
+0160   F88B 48          		PHA                 ; save char to sent
+0161   F88C AD 00 FE    WAITE   LDA ACIAS 
+0162   F88F 29 02               AND #$02            ; check bit 1 TDR 
+0163   F891 F0 F9               BEQ WAITE 
+0164   F893 68                  PLA
+0165   F894 8D 01 FE            STA ACIAT           ; sent out character
+0166   F897 60                  RTS
+0167   F898             ;
+0168   F898 AD 00 FE    INACIA  LDA ACIAS
+0169   F89B 29 01               AND #$01            ; check check bit RDR
+0170   F89D F0 F9               BEQ INACIA
+0171   F89F AD 01 FE            LDA ACIAR
+0172   F8A2 60                  RTS 
+0173   F8A3             ;
+0174   F8A3             ; Get input and echo to output as TIM ROM has bit-banged software echo
+0175   F8A3             ;		
+0176   F8A3 20 98 F8    INECHO	JSR	INACIA
+0177   F8A6 20 89 F8    		JSR	OUTACIA
+0178   F8A9 60          		RTS
+0179   F8AA             ;
+0180   F8AA             ;
+0181   F8AA             endacia 
+0182   F8AA             
+0183   F8AA                     .END
+
+
+
+Label        Value      Label        Value      Label        Value
+------------------      ------------------      ------------------
+ACIAbase      FE00      ACIAC         FE00      ACIAS         FE00      
+ACIAT         FE01      ACIAR         FE01      CR            000D      
+CRLF          F832      EPRMSG        F831      INITS         F803      
+INTIM         F809      INSER         F80C      INITACIA      F87E      
+INACIA        F898      INECHO        F8A3      LF            000A      
+MSGPRTR       00E2      NPRMSG        F824      OUTSER        F806      
+OUTACIA       F889      PRMSG         F822      PRHEX         F843      
+PRNYB         F84C      PRDIG         F854      START         F800      
+SPACE         F83D      STRTMSG       F85A      TIMROM        F80F      
+WAITE         F88C      endacia       F8AA      
+
+tasm: Number of errors = 0
