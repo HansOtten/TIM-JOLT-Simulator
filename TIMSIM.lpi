@@ -27,7 +27,7 @@
       <StringTable CompanyName="Hans Otten" LegalCopyright="MIT license Hans Otten" ProductVersion="0.11.2"/>
     </VersionInfo>
     <Resources Count="1">
-      <Resource_0 FileName="hack-vt100-regular.ttf" Type="RCDATA" ResourceName="HACK-VT100-REGULAR"/>
+      <Resource_0 FileName="Hack-VT100-Regular.ttf" Type="RCDATA" ResourceName="HACK-VT100-REGULAR"/>
     </Resources>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
