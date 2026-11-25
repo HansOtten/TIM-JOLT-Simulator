@@ -1,7 +1,7 @@
 unit ufilesave;
 
 {
-  Last update Hans Otten, August 1 2023
+  Last update Hans Otten, November 2026
 
   MIT License
 

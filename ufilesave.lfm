@@ -9,7 +9,8 @@ object ffilesave: Tffilesave
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '3.8.0.0'
+  Visible = True
   object lsavetomemory: TLabel
     Left = 26
     Height = 21
@@ -30,10 +31,10 @@ object ffilesave: Tffilesave
     Height = 23
     Top = 71
     Width = 246
-    OnEditingDone = esavefilenameEditingDone
     ReadOnly = True
     TabOrder = 0
     Text = 'esavefilename'
+    OnEditingDone = esavefilenameEditingDone
   end
   object Lfilesave: TLabel
     Left = 26
@@ -48,14 +49,14 @@ object ffilesave: Tffilesave
     Height = 23
     Top = 112
     Width = 65
-    OnEditingDone = estartaddressEditingDone
     TabOrder = 1
+    OnEditingDone = estartaddressEditingDone
   end
   object lstartaddress: TLabel
     Left = 27
     Height = 15
     Top = 118
-    Width = 102
+    Width = 101
     Caption = 'Start address in hex'
     ParentColor = False
   end
@@ -65,8 +66,8 @@ object ffilesave: Tffilesave
     Top = 280
     Width = 109
     Caption = 'Save File'
-    OnClick = bfilesaveClick
     TabOrder = 4
+    OnClick = bfilesaveClick
   end
   object mstatus: TMemo
     Left = 26
@@ -103,9 +104,9 @@ object ffilesave: Tffilesave
       Width = 176
       Caption = 'Binary (.bin)'
       Checked = True
-      OnClick = bsbinClick
       TabOrder = 0
       TabStop = True
+      OnClick = bsbinClick
     end
     object bsPRGfile: TRadioButton
       Left = 6
@@ -113,8 +114,8 @@ object ffilesave: Tffilesave
       Top = 33
       Width = 176
       Caption = 'PRG (.prg)'
-      OnClick = bsPRGfileClick
       TabOrder = 1
+      OnClick = bsPRGfileClick
     end
     object bshex: TRadioButton
       Left = 6
@@ -122,8 +123,8 @@ object ffilesave: Tffilesave
       Top = 66
       Width = 176
       Caption = 'Hex (.hex)'
-      OnClick = bshexClick
       TabOrder = 2
+      OnClick = bshexClick
     end
     object bsintelhex: TRadioButton
       Left = 6
@@ -131,8 +132,8 @@ object ffilesave: Tffilesave
       Top = 99
       Width = 176
       Caption = 'Intel hex (.ihex)'
-      OnClick = bsintelhexClick
       TabOrder = 3
+      OnClick = bsintelhexClick
     end
     object bsmotosrec: TRadioButton
       Left = 6
@@ -140,8 +141,8 @@ object ffilesave: Tffilesave
       Top = 132
       Width = 176
       Caption = 'Mototola S-record (.srec)'
-      OnClick = bsmotosrecClick
       TabOrder = 4
+      OnClick = bsmotosrecClick
     end
     object bsmospaper: TRadioButton
       Left = 6
@@ -149,8 +150,8 @@ object ffilesave: Tffilesave
       Top = 165
       Width = 176
       Caption = 'MOS Papertape (.pap,.ptp)'
-      OnClick = bsmospaperClick
       TabOrder = 5
+      OnClick = bsmospaperClick
     end
     object bstimtape: TRadioButton
       Left = 6
@@ -158,8 +159,8 @@ object ffilesave: Tffilesave
       Top = 198
       Width = 176
       Caption = 'TIM papertape (.tim)'
-      OnClick = bstimtapeClick
       TabOrder = 6
+      OnClick = bstimtapeClick
     end
     object bsapple1: TRadioButton
       Left = 6
@@ -167,8 +168,8 @@ object ffilesave: Tffilesave
       Top = 231
       Width = 176
       Caption = 'Apple 1 hex (.ahex)'
-      OnClick = bsapple1Click
       TabOrder = 7
+      OnClick = bsapple1Click
     end
     object bskimtape: TRadioButton
       Left = 6
@@ -176,8 +177,8 @@ object ffilesave: Tffilesave
       Top = 264
       Width = 176
       Caption = 'KIM-1 Tape (.tap)'
-      OnClick = bskimtapeClick
       TabOrder = 8
+      OnClick = bskimtapeClick
     end
     object bsdefinetype: TRadioButton
       Left = 6
@@ -185,8 +186,8 @@ object ffilesave: Tffilesave
       Top = 297
       Width = 176
       Caption = 'Define Byte (.asm)'
-      OnClick = bsdefinetypeClick
       TabOrder = 9
+      OnClick = bsdefinetypeClick
     end
   end
   object bexit: TButton
@@ -195,14 +196,14 @@ object ffilesave: Tffilesave
     Top = 448
     Width = 112
     Caption = 'Exit'
-    OnClick = bexitClick
     TabOrder = 5
+    OnClick = bexitClick
   end
   object lend: TLabel
     Left = 27
     Height = 15
     Top = 158
-    Width = 98
+    Width = 97
     Caption = 'End address in hex'
     ParentColor = False
   end
@@ -211,22 +212,22 @@ object ffilesave: Tffilesave
     Height = 23
     Top = 152
     Width = 65
-    OnEditingDone = eendEditingDone
     TabOrder = 2
+    OnEditingDone = eendEditingDone
   end
   object etapeID: TEdit
     Left = 200
     Height = 23
     Top = 200
     Width = 40
-    OnEditingDone = etapeIDEditingDone
     TabOrder = 3
+    OnEditingDone = etapeIDEditingDone
   end
   object ltapeID: TLabel
     Left = 26
     Height = 15
     Top = 200
-    Width = 62
+    Width = 63
     Caption = 'KIM Tape ID'
     ParentColor = False
   end
@@ -234,7 +235,7 @@ object ffilesave: Tffilesave
     Left = 27
     Height = 15
     Top = 240
-    Width = 57
+    Width = 56
     Caption = 'Define text'
     ParentColor = False
   end
@@ -251,8 +252,8 @@ object ffilesave: Tffilesave
     Top = 71
     Width = 34
     Caption = '...'
-    OnClick = bsavememoryClick
     TabOrder = 9
+    OnClick = bsavememoryClick
   end
   object DialogFileSave: TSaveDialog
     Left = 480

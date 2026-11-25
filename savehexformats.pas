@@ -5,7 +5,7 @@ unit savehexformats;
 
   Hans Otten
 
-  Last update March 2025
+  Last update November 2026
 
 V1 Initial KIM-1 Papertape to binary and vice versa conversion
 V2 More file types added

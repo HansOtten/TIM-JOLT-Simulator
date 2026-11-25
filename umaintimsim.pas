@@ -28,7 +28,7 @@ unit umaintimsim;
 
 { Handle TIM  }
 
-{$mode objfpc}{$H+}                                                
+{$mode objfpc}{$H+}
 
 interface
 
@@ -1245,4 +1245,5 @@ end;
 
 
 end.
+
 
