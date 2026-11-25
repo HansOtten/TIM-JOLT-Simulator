@@ -26,6 +26,9 @@
       <RevisionNr Value="2"/>
       <StringTable CompanyName="Hans Otten" LegalCopyright="MIT license Hans Otten" ProductVersion="0.11.2"/>
     </VersionInfo>
+    <Resources Count="1">
+      <Resource_0 FileName="hack-vt100-regular.ttf" Type="RCDATA" ResourceName="HACK-VT100-REGULAR"/>
+    </Resources>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
     </BuildModes>
@@ -36,7 +39,7 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
         <PackageName Value="LazSerialPort"/>
       </Item1>
@@ -46,6 +49,9 @@
       <Item3>
         <PackageName Value="LCL"/>
       </Item3>
+      <Item4>
+        <PackageName Value="BGRABitmapPack"/>
+      </Item4>
     </RequiredPackages>
     <Units Count="18">
       <Unit0>
