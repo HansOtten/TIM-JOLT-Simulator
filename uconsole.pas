@@ -363,7 +363,6 @@ begin
   VT_Break  := False;
   LoadTextOpen := False;
 
-  Reset_VT;
   SetConsoleConfig(InitFColor, InitBColor);
   BuildGraphicsMap;
 end;

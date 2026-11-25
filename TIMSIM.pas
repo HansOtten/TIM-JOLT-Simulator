@@ -1,7 +1,7 @@
 program TIMSIM;
 
 {
-  Last update Hans Otten, November 2023
+  Last update Hans Otten, November 2026
 
   MIT License
 
@@ -38,6 +38,7 @@ v0.7 November 2024 Support ACIA ROM moved to F800.
 Can now load KIM-5 Resident Asembler/Editor
 V0.8 serial I/O besides console
 V0.9 keyboard variants removed, OS delivers right key code
+V0.10.2 November 2026 updated load/save, VT100 console
 }
 
 {$mode objfpc}{$H+}
@@ -72,6 +73,9 @@ begin
   Application.CreateForm(TFHexSearch, FHexSearch);
   Application.CreateForm(TFMoveCopyMemory, FMoveCopyMemory);
   Application.CreateForm(TFFillmemory, FFillmemory);
+  { Console: clear with the final colours and show it at startup }
+  Reset_VT;
+  Fconsole.Show;
   Application.Run;
 end.
 
